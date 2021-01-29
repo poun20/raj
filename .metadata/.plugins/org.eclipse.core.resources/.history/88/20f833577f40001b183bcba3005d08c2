@@ -1,0 +1,180 @@
+package testng_exercises;
+
+import org.testng.annotations.Test;
+
+import com.sun.jna.platform.win32.WinDef.POINT;
+import com.thoughtworks.selenium.webdriven.commands.DragAndDrop;
+
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+
+import java.awt.List;
+import java.awt.Point;
+import java.util.Map;
+import java.util.Set;
+import java.util.jar.Attributes.Name;
+
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+
+public class NewTest {
+	public WebDriver driver;
+	private Select select;
+  @Test
+  public void f() {
+	  System.out.println("Inside test method");
+	  
+  }
+  @BeforeTest
+  public void beforeSuite() {
+	  System.out.println("Inside before method");
+	 // System.setProperty("webdriver.chrome.driver","C:\\Users\\user\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe");
+	  System.setProperty("webdriver.chrome.driver","D:\\chromedriver.exe");
+		
+
+	  driver = new org.openqa.selenium.chrome.ChromeDriver();
+	  driver.get("http://leafground.com/");
+		System.out.println(driver.getCurrentUrl());
+  }
+
+  @AfterTest
+  public void afterSuite() throws InterruptedException {
+	  System.out.println("Inside after method");
+	  driver.manage().window().maximize();
+	 
+ driver.findElement(By.xpath("//*[@id=\"post-153\"]/div[2]/div/ul/li[1]/a/img")).click();
+ driver.findElement(By.xpath("/html/body/div/div/div[3]/section/div[1]/div/div/input")).sendKeys("poun1996@gmail.com");
+ driver.findElement(By.xpath("//*[@id=\"contentblock\"]/section/div[2]/div/div/input")).sendKeys("poun");
+  String textbox=driver.findElement(By.name("username")).getText();
+
+System.out.println("Clear me!!");
+
+driver.findElement(By.xpath("//*[@id=\"contentblock\"]/section/div[4]/div/div/input")).clear();
+  boolean r=driver.findElement(By.xpath("//*[@id=\"contentblock\"]/section/div[5]/div/div/input")).isEnabled();
+  System.out.println(r);
+  Thread.sleep(2000);
+  driver.navigate().to("http://leafground.com/");
+  driver.findElement(By.xpath("//*[@id=\"post-153\"]/div[2]/div/ul/li[2]/a/img")).click();
+  WebElement getpostition=driver.findElement(By.id("position"));
+  org.openqa.selenium.Point xypoint=getpostition.getLocation();
+		int xValue=xypoint.getX();
+		int yValue=xypoint.getY();
+		  System.out.println("X value is:"+xValue +"Y value is:"+yValue);
+WebElement colorbutton=driver.findElement(By.id("color"));
+String color=colorbutton.getCssValue("background-color");
+
+System.out.println("button color is:"+color);
+
+WebElement sizebutton=driver.findElement(By.id("size"));
+
+int height=sizebutton.getSize().getHeight();
+int width=sizebutton.getSize().getWidth();
+System.out.println("button height  is:"+height +"button width:"+width);
+Thread.sleep(2000);
+driver.findElement(By.id("home")).click();
+driver.navigate().to("http://leafground.com/pages/Dropdown.html");
+
+WebElement dropdown1=driver.findElement(By.id("dropdown1"));
+WebElement dropdown2=driver.findElement(By.name("dropdown2"));
+WebElement dropdown3=driver.findElement(By.id("dropdown3"));
+
+Select select1=new Select (dropdown1);
+Select select2=new Select (dropdown2);
+Select select3=new Select (dropdown3);
+
+select1.selectByIndex(4);
+select2.selectByVisibleText("Selenium");
+select3.selectByValue("2");
+
+//list<WebElement>listofoptions=  (list<WebElement>) select.getOptions();
+
+//int size=((Map<Object, Object>) listofoptions).size();
+//System.out.println("member of element:"+size);
+
+//dropdown1.sendKeys("Loadrunner");
+
+driver.findElement(By.xpath("//*[@id=\"contentblock\"]/section/div[5]/select")).sendKeys("selenium");
+driver.navigate().to("http://leafground.com/home.html");
+driver.findElement(By.xpath("//*[@id=\"post-153\"]/div[2]/div/ul/li[11]/a/img")).click();
+
+String oldwindow=driver.getWindowHandle();
+
+driver.findElement(By.id("home")).click();
+Set<String>handles= driver.getWindowHandles();
+for (String newwindow : handles) {
+	
+	driver.switchTo().window(newwindow);
+}
+driver.findElement(By.xpath("//*[@id=\"post-153\"]/div[2]/div/ul/li[9]/a")).click();
+	 
+
+	  
+
+
+
+
+	  
+
+
+
+	  
+
+	  
+
+	  
+	  
+
+
+
+	 
+
+
+
+
+
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+
+	  
+
+
+	 
+
+	 
+	  
+
+
+	
+	 
+	
+
+	
+
+
+	  
+	   
+	   
+
+	   
+	   
+  }
+private Actions draganddrop (WebElement from, WebElement to) {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+}

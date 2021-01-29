@@ -1,0 +1,153 @@
+package testng_exercises;
+
+import org.testng.annotations.Test;
+
+import com.thoughtworks.selenium.webdriven.commands.DragAndDrop;
+
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+
+import java.awt.List;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+
+public class NewTest {
+	public WebDriver driver;
+  @Test
+  public void f() {
+	  System.out.println("Inside test method");
+	  
+  }
+  @BeforeTest
+  public void beforeSuite() {
+	  System.out.println("Inside before method");
+	 // System.setProperty("webdriver.chrome.driver","C:\\Users\\user\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe");
+	  System.setProperty("webdriver.chrome.driver","D:\\chromedriver.exe");
+		
+
+	  driver = new org.openqa.selenium.chrome.ChromeDriver();
+	  driver.get("https://www.automationtestinginsider.com/2019/08/student-registration-form.html");
+		System.out.println(driver.getCurrentUrl());
+  }
+
+  @AfterTest
+  public void afterSuite() throws InterruptedException {
+	  System.out.println("Inside after method");
+	  driver.manage().window().maximize();
+	  Thread.sleep(2000);
+	  driver.findElement(By.name("First_Name")).sendKeys("poun");
+	  driver.findElement(By.name("Last_Name")).sendKeys("raj");
+	 WebElement bd= driver.findElement(By.id("Birthday_Day"));
+	 WebElement bm= driver.findElement(By.id("Birthday_Month"));
+	 WebElement by= driver.findElement(By.id("Birthday_Year"));
+	 Select birthday=new Select(bd);
+	 Select birthmonth=new Select(bm);
+	 Select birthyear=new Select(by);
+	 birthday.selectByIndex(21);
+	 birthmonth.selectByIndex(6);
+	 birthyear.selectByIndex(17);
+	  driver.findElement(By.name("Email_Id")).sendKeys("rajpoun1996@gmail.com");
+	  driver.findElement(By.name("Mobile_Number")).sendKeys("9952439046");
+	  driver.findElement(By.name("Gender")).click();
+	  driver.findElement(By.name("Address")).sendKeys("ambattur");
+	  driver.findElement(By.name("City")).sendKeys("chennai");
+	  driver.findElement(By.name("Pin_Code")).sendKeys("600053");
+	  driver.findElement(By.name("State")).sendKeys("tamilnadu");
+	  driver.findElement(By.name("Hobby")).click();
+	  driver.findElement(By.name("Graduation_Board")).sendKeys("aruani engg clolege");
+	  driver.findElement(By.name("Graduation_Percentage")).sendKeys("65%");
+	  driver.findElement(By.name("Graduation_YrOfPassing")).sendKeys("2017");
+	  driver.findElement(By.name("BCA")).click();
+	boolean bl=  driver.findElement(By.xpath("//*[@id=\"post-body-7514611991416825350\"]/div[1]/table/tbody/tr[15]/td/input[1]")).isEnabled();
+     System.out.print("submit button is "+bl);
+	WebElement Doubleclick =  driver.findElement(By.xpath("//*[@id=\"PageList2\"]/div/ul/li[12]/a"));
+	Actions act=new Actions(driver);
+	act.doubleClick(Doubleclick).perform();
+	Thread.sleep(2000);
+ 	  driver.navigate().to("https://opensource-demo.orangehrmlive.com/index.php/auth/validateCredentials");
+      driver.findElement(By.id("txtUsername")).sendKeys("Admin");
+	  driver.findElement(By.id("txtPassword")).sendKeys("admin123");
+	  driver.findElement(By.name("Submit")).click();
+	  Thread.sleep(2000);
+	  driver.findElement(By.id("empsearch_employee_name_empName")).sendKeys("poun");
+	  driver.findElement(By.name("empsearch[id]")).sendKeys("01");
+WebElement status=	  driver.findElement(By.name("empsearch[employee_status]"));
+Select sta= new Select(status);
+sta.selectByIndex(11);
+WebElement include=	  driver.findElement(By.name("empsearch[termination]"));
+Select inc= new Select(include);
+inc.selectByIndex(2);
+
+
+
+	 
+
+	  
+
+
+
+
+	  
+
+
+
+	  
+
+	  
+
+	  
+	  
+
+
+
+	 
+
+
+
+
+
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+
+	  
+
+
+	 
+
+	 
+	  
+
+
+	
+	 
+	
+
+	
+
+
+	  
+	   
+	   
+
+	   
+	   
+  }
+private Actions draganddrop (WebElement from, WebElement to) {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+}

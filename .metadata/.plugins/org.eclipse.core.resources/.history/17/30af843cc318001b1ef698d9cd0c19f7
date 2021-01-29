@@ -1,0 +1,25 @@
+package myproject;
+
+import java.util.Scanner;
+
+public class MyClass {
+
+	public static void main(String[] args) {
+	   Scanner p=new Scanner (System.in);
+	    
+	    
+	    System.out.println("enter the name");
+	    String name=p.next();
+	    System.out.println("enter the emp id");
+	    int id=p.nextInt();
+	    System.out.println("enter the company name");
+	    String name1=p.next();
+	    }
+	
+	    	
+	}
+	    	
+
+	   
+
+

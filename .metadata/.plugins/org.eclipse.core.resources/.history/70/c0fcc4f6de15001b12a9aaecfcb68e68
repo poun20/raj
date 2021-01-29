@@ -1,0 +1,25 @@
+package myproject;
+
+public class MyClass {
+
+	public static void main(String[] args) {
+	    int a=10,b=20,c=18;
+	    if((a>b)&&(a>c))
+	    {
+	    	System.out.println(" pass");	
+	    }else if ((a>b)&&(b>c)) {
+	    	System.out.println(" pass with first class");
+	    }else if ((b>a)&&(c>b)) {
+	    	System.out.println(" pass with second class");
+	    }else if ((b>a)&&(b>c)) {
+	    	System.out.println(" pass with third class");
+	    }else   {
+	    	System.out.println(" invalid marks");
+	    }
+	    	
+	}
+	    	
+
+	   
+}
+

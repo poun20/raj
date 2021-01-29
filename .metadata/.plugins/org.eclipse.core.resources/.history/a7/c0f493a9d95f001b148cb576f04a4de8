@@ -1,0 +1,18 @@
+package pageobjects;
+
+import org.openqa.selenium.By;
+
+public class loginpageobjects {
+public void username() {
+	  driver.findElement(By.name("username"));
+
+}
+public void password() {
+	  driver.findElement(By.name("password"));
+
+}
+public void loginButton() {
+	  driver.findElement(By.xpath("//*[@id=\\\"loginfrm\\\"]/button"));
+
+}
+}

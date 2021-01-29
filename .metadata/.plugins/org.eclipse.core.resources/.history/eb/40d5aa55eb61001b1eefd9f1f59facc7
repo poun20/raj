@@ -1,0 +1,40 @@
+package utility;
+
+import java.io.FileInputStream;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+public class testBase {
+	public static WebDriver driver;
+	public static Properties pro;
+	public static String Appurl;
+	public static String Datafile;
+	public static String sheetname;
+	public testBase() throws Exception{
+		pro = new Properties();
+		Object syestem;
+		FileInputStream FI= new FileInputStream(System.getproperty("user.dir")+"\\config.file.properties");
+		pro.load(FI);
+		Appurl=pro.getProperty("Appurl");
+		Datafile=pro.getProperty("DatafileName");
+		sheetname=pro.getProperty("DatasheetName");
+	}
+public static void initialize() throws Exception
+{
+ChromeOptions optios = new ChromeOptions();
+optios.setExperimentalOption("useAutomationExtension", false);
+optios.addArguments("start-maximized");
+DesiredCapabilities capabilities =new DesiredCapabilities();
+capabilities.setCapability(ChromeOptions.CAPABILITY, false);
+System.setProperty("webdriver.chrome.driver","D:\\chromedriver.exe");
+driver.new (capabilities);
+driver.manage().window().maximize();
+driver.manage().timeouts().implicitlyWait(Integer.parseInt(pro.getProperty("implicitytime")), TimeUnit.SECONDS);
+driver.get(Appurl);
+Thread.sleep(3000);
+}
+}

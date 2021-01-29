@@ -1,0 +1,7 @@
+package test;
+
+public class list<T> {
+
+	public static final int size = 0;
+
+}

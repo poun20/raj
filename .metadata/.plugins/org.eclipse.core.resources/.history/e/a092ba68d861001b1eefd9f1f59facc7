@@ -1,0 +1,56 @@
+package test;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
+
+import Object_repository.Flight_search_page;
+
+public class flight_booking_test {
+	@Test
+	 public void beforeSuite() throws extends testBase {
+		int tc_row;
+		flight_booking_test() throws Exception{
+			super();
+			// todo auto-generated constructor stub
+		}
+		@BeforeClass
+		public void beforeClass()throws Exception{
+			Initialize();
+			excel.setExcelFile(ootofile,sheetname);
+			tc_row =excel.getforcontains("flight_booking_test");
+		}
+		 @Test
+		 public void f() throws Exception{
+			 try {
+				 String from_loc = excel.getCellData(tc_row,"from_loc");
+				 String to_loc = excel.getCellData(tc_row,"to_loc");
+				 String departure_data = excel.getCellData(tc_row,"date(mm/dd/yyyy)");
+				 String Adults_count = excel.getCellData(tc_row,"Adults_count");
+				 String Childs_count = excel.getCellData(tc_row,"Childs_count");
+				 String infants_count = excel.getCellData(tc_row,"Infants_count");
+				 String travel_class = excel.getCellData(tc_row,"travel_class");
+				 String non_stop_flight = excel.getCellData(tc_row,"non_stop_flight(Y/N");
+				 //driver.switchTo().alert().dismiss();
+				 Flight_search_page obj = new flight_search_page();
+				 obj_select
+				 obj_enter_details(integer_)
+				 obj_select_travel_class(travel_class);
+				 if(Non_stop_flight.equlasIgnorecase("Y")) {
+					 obj.non_stop_flight.click();
+				 }
+				 obj.search_btn.click();
+				 }
+			 catch(Excepion e) {
+				 System.out.println(e.getmessage());
+			 }
+		 }
+		 @AfterClass
+		 public void AfterClass() {
+			 driver.quit();
+		 }
+		 
+		 
+	 }
+

@@ -1,0 +1,43 @@
+package testng_exercises;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+
+public class Correctusername {
+	
+
+
+
+	
+
+
+
+	private RemoteWebDriver driver;
+
+
+
+	@BeforeSuite
+	public void correctusername() {
+		  System.setProperty("webdriver.chrome.driver","D:\\chromedriver.exe");
+		  ChromeDriver driver = new org.openqa.selenium.chrome.ChromeDriver();
+		  driver.get("https://www.toolsqa.com/");
+			System.out.println(driver.getCurrentUrl());
+	}	
+
+		  
+
+	@AfterSuite(groups = ("poun"))
+	public void correc() {
+		driver.quit();
+	
+
+
+}
+}

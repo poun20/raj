@@ -1,0 +1,23 @@
+package Demo_Study;
+
+public class demo_1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	
+	
+		System.out.println("poun"); 
+		methodOne();
+		System.out.println(methodTwo()); 
+		
+		
+		
+}
+	private static void methodOne() {
+		System.out.println("raj"); 
+	}
+	static int methodTwo() {
+		return 10+20;
+	}
+
+}

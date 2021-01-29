@@ -1,0 +1,24 @@
+package myproject;
+
+public class MyClass {
+
+	public static void main(String[] args) {
+	    int a=21,b=30,c=30;
+	    if((a>b)&&(a>c))
+	    {
+	    	System.out.println("pass");	
+	    }else if ((b>a)&&(b>=c)) {
+	    	System.out.println("correct");
+	    }else if ((b>a)&&(b<=c)) {
+	    	System.out.println("fail");
+	    }
+	    else   {
+	    	System.out.println(" invalid marks");
+	    }
+	    	
+	}
+	    	
+
+	   
+}
+

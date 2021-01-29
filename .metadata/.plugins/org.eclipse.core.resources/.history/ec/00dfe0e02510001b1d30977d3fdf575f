@@ -1,0 +1,31 @@
+package myproject;
+
+public class MyClass {
+
+	public static void main(String[] args) {
+		String name ="poun";
+		switch(name) {
+		case "raj":
+			System.out.println("sunday");
+		    break;
+		case "poun":
+		    System.out.println("poun");
+			break;
+		default:
+			System.out.println("not a valid");   
+		    
+		 
+		}
+		
+		
+		
+		
+		
+	
+		
+		
+		
+
+	}
+
+}

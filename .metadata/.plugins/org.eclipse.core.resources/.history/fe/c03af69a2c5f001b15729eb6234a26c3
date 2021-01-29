@@ -1,0 +1,12 @@
+package testing;
+
+public class pageobjectmodel {
+	@findBy(name="username")
+	public static WebElement username;
+	@findBy(name="username")
+	public static WebElement password;
+	@findBy(name="username")
+	public static WebElement submit;
+	
+
+}

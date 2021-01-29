@@ -1,0 +1,16 @@
+package myproject;
+
+public class MyClass {
+
+	public static void main(String[] args) {
+	    int a= 6,b=5;
+	    if((a-b)==0)
+	    {
+	    	System.out.println("both value are same");	
+	    	
+	    	}
+	}
+}
+	   
+
+

@@ -1,0 +1,46 @@
+package utility;
+
+public class excel extends testBase {
+	excel() throws Exception{
+		Super();
+	}
+private static XSSFWorkbook ExcellBook;
+private static XSSFSheet Excellsheet;
+private static XSSFCell Excellsheet;
+
+
+private static  void setExcelFile(String path.String sheetName)throws Exception
+{ try
+{
+	//open he Excel file
+	FileInputStream Excellfile = new fileInputsStream(path);
+	ExcellBook =new XSSFWorkbook(ExcelFile);
+	ExcellSheet = ExcellBook.getSheet(SheetName);
+	
+}
+catch(Exception e)
+{
+	throw(e);
+	
+}
+}
+private static  int getRowcontais(String_val)throws Exception
+{ int i;
+try
+{
+	int rowcount=ExcellSheet.getlastRowNum();
+	for(i=0;i<=rowcount;i++)
+		if(ExcellSheet.getRow(i).getCell(0).getStringCellvalue().equalsIgorecase(search_val))
+		{
+			System.out.println("Testcase name in sheet:"+ExcellSheet.getrow(i).getcell(0).getStringvalue());
+			break;
+		}
+}
+return i;
+
+}catch(Exception e)
+{
+	throw(e);
+}
+}
+private static

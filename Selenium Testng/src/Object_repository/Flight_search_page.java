@@ -1,0 +1,88 @@
+package Object_repository;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import utility.testBase;
+public class Flight_search_page extends testBase{
+	public Flight_search_page() throws Exception {	
+		PageFactory.initElements(driver, this);
+	}
+
+	@FindBy(xpath=("//*[@id='BE_flight_origin_city']"))
+	public  WebElement from_city;
+	
+	@FindBy(xpath=("//*[@id='BE_flight_arrival_city']"))
+	public  WebElement to_city;
+	
+	@FindBy(xpath=("//*[@id='BE_flight_origin_date']"))
+	public  WebElement daparture_date;
+	
+	@FindBy(xpath=("//*[@id='flight_class_select_child']/ul/li"))
+	public  WebElement travel_class;
+	
+	@FindBy(xpath=("//*[@id='BE_flight_flsearch_btn'][1]"))
+	public  WebElement search_btn;
+	
+	@FindBy(xpath=("//*[@id='BE_flight_paxInfoBox']"))
+	public  WebElement expand_details;
+	
+	@FindBy(xpath=("//*[@id='BE_flight_from_wrapper']/div[3]/div[1]/div/a/i"))
+	public  WebElement non_stop_flight;
+	 
+	
+	public void set_daparturedate(String date)throws Exception{
+		
+		daparture_date.click();
+		driver.findElement(By.xpath("//td[@data-date='"+date+"']")).click();;
+	}
+	public void selectlocation(String from_loc,String to_loc,String date)throws Exception{
+	 
+		
+		from_city.click();
+		senkeys(from_city,from_loc);
+		from_city.sendKeys(Keys.ENTER);
+		to_city.click();
+		senkeys(to_city,to_loc);
+		to_city.sendKeys(Keys.ENTER);
+		set_daparturedate(date);
+		
+}
+	protected void senkeys(final WebElement element,final String keys) {
+		for (int i=0;i<keys.length();i++) {
+			element.sendKeys(Character.toString(keys.charAt(i)));
+			
+		}
+	}
+	public void enter_details(Integer Adult_count,Integer Child_count,int Infant_count)throws Exception{
+		expand_details.click();
+		if(Adult_count>1) {
+			for(int i=2;i<=Adult_count;i++) {
+				driver.findElement(By.xpath("//*[@id='BE_flight_passengerBox]/div[1]/div/div/span[2]")).click();
+			}
+		}
+	if(Child_count>0) {
+		for(int i=1;i<=Adult_count;i++) {
+			driver.findElement(By.xpath("//*[@id='BE_flight_passengerBox']/div[1]/div[2]/div/div/span[2]")).click();
+		}
+	}
+		if(Infant_count>0) {
+			for(int i=1;i<=Adult_count;i++) {
+				driver.findElement(By.xpath("//*[@id='BE_flight_passengerBox']/div[1]/div[3]/div/div/span[2]")).click();
+
+			}
+		}
+	}
+	public void select_travel_class(String trvl_class)throws Exception{
+		if(trvl_class.equalsIgnoreCase("business"))
+		{
+			driver.findElement(By.xpath("//*[@id='flight_class_select_child']/ul/l1/span(text()-'business')")).click();
+		}else if(trvl_class.equalsIgnoreCase("premium economy")) {
+			driver.findElement(By.xpath("//*[@id='flight_class_select_child']/ul/l1/span(text()-'premium Economy')")).click();
+
+		}
+
+		}
+	}

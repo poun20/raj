@@ -1,0 +1,16 @@
+package Demo_Study;
+
+public class demo_1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int num = 5;
+		while(num<1)
+		{
+		System.out.println("poun"); 
+		num--;
+		
+}
+
+}
+}

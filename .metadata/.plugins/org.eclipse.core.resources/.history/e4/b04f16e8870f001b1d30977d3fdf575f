@@ -1,0 +1,29 @@
+package myproject;
+
+public class MyClass {
+
+	public static void main(String[] args) {
+		int a=10,b=20,c=15;
+	    int d=a+b+c;
+		int e=a+b-c;
+		int f=d+e;
+		System.out.println(d);
+		System.out.println(++d);
+		System.out.println(d++);
+		System.out.println(--d);
+		System.out.println(d+f);
+		System.out.println(d/f);
+		System.out.println(e*f);
+		
+		
+		
+		
+		
+	
+		
+		
+		
+
+	}
+
+}

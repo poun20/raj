@@ -1,0 +1,25 @@
+package test;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class parrlel {
+	@Test
+	public void thoq() {
+		System.setProperty("webdriver.chrome.driver","D:\\chromedriver.exe");
+		  ChromeDriver driver = new org.openqa.selenium.chrome.ChromeDriver();
+		  driver.get("https://ads.aopks.com/");
+			System.out.println(driver.getCurrentUrl());
+			driver.manage().window().maximize();
+			driver.quit();
+}
+	@Test
+	public void medflic() {
+		System.setProperty("webdriver.chrome.driver","D:\\chromedriver.exe");
+		  ChromeDriver driver = new org.openqa.selenium.chrome.ChromeDriver();
+		  driver.get("https://medflic-qa.aopks.com/login");
+			System.out.println(driver.getCurrentUrl());
+			driver.manage().window().maximize();
+			driver.quit();	
+	}
+}

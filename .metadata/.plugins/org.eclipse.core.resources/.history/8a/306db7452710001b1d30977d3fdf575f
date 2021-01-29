@@ -1,0 +1,32 @@
+package myproject;
+
+public class MyClass {
+
+	public static void main(String[] args) {
+	    int num= 20;
+	    String size;
+		switch(num) {
+		case 10:
+			System.out.println("small");
+		    break;
+		case 21:
+		    System.out.println("medium");
+			break;
+		default:
+			System.out.println("not a valid");   
+		    
+		 
+		}
+		
+		
+		
+		
+		
+	
+		
+		
+		
+
+	}
+
+}

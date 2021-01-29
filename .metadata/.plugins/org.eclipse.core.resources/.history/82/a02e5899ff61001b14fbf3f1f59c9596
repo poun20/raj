@@ -1,0 +1,325 @@
+package test;
+
+import org.testng.annotations.Test;
+
+import com.sun.jna.platform.win32.WinDef.POINT;
+import com.thoughtworks.selenium.webdriven.commands.DragAndDrop;
+
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+
+import java.awt.List;
+import java.awt.Point;
+import java.io.File;
+import java.io.IOException;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+import java.util.jar.Attributes.Name;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+
+public class NewTest {
+	private static final String Ex = null;
+	private static final long starttime = 0;
+	public WebDriver driver;
+	private Select select;
+  @Test
+  public void f() {
+	  System.out.println("Inside test method");
+	  
+  }
+  @BeforeTest
+  public void beforeSuite() {
+	  long startTime=System.currentTimeMillis();
+	  System.out.println("Inside before method");
+	 // System.setProperty("webdriver.chrome.driver","C:\\Users\\user\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe");
+	  System.setProperty("webdriver.chrome.driver","D:\\chromedriver.exe");
+		
+
+	  driver = new org.openqa.selenium.chrome.ChromeDriver();
+	  driver.get("https://demoqa.com/buttons");
+		System.out.println(driver.getCurrentUrl());
+  }
+
+  @AfterTest
+  public void afterSuite() throws InterruptedException {
+	  try {
+	  System.out.println("Inside after method");
+	  driver.manage().window().maximize();
+	 
+ 
+ driver.findElement(By.id("item-0")).click();
+
+driver.findElement(By.id("userName")).sendKeys("poun");
+
+driver.findElement(By.id("userEmail")).sendKeys("rajpoun1996@gmail.com");
+driver.findElement(By.id("currentAddress")).sendKeys("chennai");
+
+driver.findElement(By.id("permanentAddress")).sendKeys("kannandahalli");
+driver.findElement(By.id("submit")).submit();
+Thread.sleep(2000);
+driver.findElement(By.xpath("//*[@id=\"item-1\"]/span")).click();
+driver.findElement(By.className("rct-checkbox")).click();
+driver.findElement(By.className("rct-checkbox")).click();
+driver.navigate().to("https://demoqa.com/radio-button");
+driver.findElement(By.className("custom-control-label")).click();
+driver.navigate().to("https://demoqa.com/buttons");
+
+WebElement doubleclick  =driver.findElement(By.id("doubleClickBtn"));
+Actions action=new Actions(driver);
+action.doubleClick(doubleclick).perform();
+//driver.findElement(By.xpath("//button[type='button']")).click();
+Thread.sleep(2000);
+//WebElement rightclick   =driver.findElement(By.id("doubleClickBtn"));
+//Actions action1=new Actions(driver);
+//action1.contextClick(rightclick).perform();
+
+
+driver.navigate().to("https://demoqa.com/upload-download");
+
+driver.findElement(By.id("downloadButton")).click();
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+driver.findElement(By.xpath("//input[@id='uploadFile']")).sendKeys("C:\\Users\\user\\Downloads\\sampleFile (1).jpeg");
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+JavascriptExecutor js= (JavascriptExecutor)driver;
+
+js.executeScript("window.scrollBy(0,4000)");
+//driver.navigate().to("https://demoqa.com/auto-complete");
+ //WebElement option= driver.findElement(By.xpath("//*[@id=\"autoCompleteSingleContainer\"]/div/div[1]"));
+//for (WebElement WebElement :option) {
+	
+//if(	WebElement.getText().equals("green")){
+	//WebElement.click();
+	//break;
+		
+	//}
+//}
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+driver.findElement(By.xpath("//*[@id=\"item-3\"]/span")).click();
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+driver.findElement(By.id("addNewRecordButton")).click();
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+driver.findElement(By.id("firstName")).sendKeys("poun");
+driver.findElement(By.id("lastName")).sendKeys("raj");
+
+driver.findElement(By.id("userEmail")).sendKeys("rajpoun1996@gmail.com");
+driver.findElement(By.id("age")).sendKeys("24");
+driver.findElement(By.id("salary")).sendKeys("24000");
+driver.findElement(By.id("department")).sendKeys("auto");
+driver.findElement(By.id("submit")).submit();
+driver.findElement(By.id("searchBox")).sendKeys("poun"+Keys.ENTER);
+driver.findElement(By.id("edit-record-4")).click();
+
+driver.findElement(By.id("salary")).clear();
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+driver.findElement(By.id("salary")).sendKeys("2000");
+
+driver.findElement(By.id("submit")).submit();
+driver.findElement(By.id("searchBox")).clear();
+
+driver.navigate().to("https://demoqa.com/automation-practice-form");
+
+driver.findElement(By.id("firstName")).sendKeys("poun");
+driver.findElement(By.id("lastName")).sendKeys("kumar");
+driver.findElement(By.id("userEmail")).sendKeys("rajpoun1996@gmail.com");
+driver.findElement(By.xpath("//*[@id=\"genterWrapper\"]/div[2]/div[1]/label")).click();
+driver.findElement(By.id("userNumber")).sendKeys("9952439046");
+ driver.findElement(By.id("dateOfBirthInput")).click();
+ WebElement  month   =driver.findElement(By.xpath("//*[@id=\"dateOfBirth\"]/div[2]/div[2]/div/div/div[2]/div[1]/div[2]/div[1]/select"));
+ WebElement year  =driver.findElement(By.xpath("//*[@id=\"dateOfBirth\"]/div[2]/div[2]/div/div/div[2]/div[1]/div[2]/div[2]/select"));
+
+Select month1=new Select(month );
+month1.selectByIndex(4);
+Select year1=new Select(year );
+year1.selectByIndex(20);
+driver.findElement(By.xpath("//*[@id=\"dateOfBirth\"]/div[2]/div[2]/div/div/div[2]/div[2]/div[4]/div[1]")).click();
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+driver.findElement(By.xpath("//input[@id='firstName']/following::input[8]")).sendKeys("mechanicall");
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+//driver.findElement(By.xpath("//input[@id='firstName']/following::input[8]/following::input[1]")).click();
+driver.findElement(By.id("uploadPicture")).sendKeys("C:\\Users\\user\\Downloads\\sampleFile (1).jpeg");
+driver.findElement(By.id("currentAddress")).sendKeys("kannandahalli,krishnagiri(dist),bargur(tk)");
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+//WebElement state  =driver.findElement(By.xpath("//div[@id='state']"));
+
+//Select tamil=new Select(state );
+////tamil.selectByIndex(2);
+//WebElement city =driver.findElement(By.xpath("//div[@id='city']"));
+
+//Select bar=new Select(city);
+//bar.selectByIndex(1);
+WebElement submitbutton=driver.findElement(By.xpath("//button[@id='submit']"));
+if(submitbutton.isEnabled()) {
+	submitbutton.submit();
+
+}
+Thread.sleep(2000);
+driver.findElement(By.id("closeLargeModal")).click();
+
+
+driver.navigate().to("https://demoqa.com/alerts");
+driver.findElement(By.id("alertButton")).click();
+Alert alert=driver.switchTo().alert();
+alert.accept();
+driver.findElement(By.id("timerAlertButton")).click();
+Thread.sleep(5000);
+Alert alert1=driver.switchTo().alert();
+alert1.accept();
+
+
+
+WebElement confirmbutton =driver.findElement(By.id("confirmButton"));
+confirmbutton.click();
+Alert confirmalert=driver.switchTo().alert();
+confirmalert.dismiss();
+
+WebElement promotbutton =driver.findElement(By.id("promtButton"));
+promotbutton.click();
+Thread.sleep(5000);
+
+Alert promoAlert=driver.switchTo().alert();
+promoAlert.sendKeys("poun");
+alert1.accept();
+
+driver.navigate().to("https://demoqa.com/droppable");
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+WebElement from =driver.findElement(By.xpath("//*[@id='draggable']"));
+WebElement to =driver.findElement(By.xpath("//*[@id='droppable']"));
+
+Actions actions=new Actions(driver);
+
+actions.clickAndHold(from).moveToElement(to).build().perform();
+
+driver.navigate().to("https://demoqa.com/books");
+driver.findElement(By.id("searchBox")).sendKeys("Git pocket guide"+Keys.ENTER);
+driver.findElement(By.xpath("//*[@id='see-book-Git Pocket Guide']")).click();
+
+driver.findElement(By.id("login")).click();
+driver.findElement(By.id("newUser")).click();
+driver.findElement(By.id("firstname")).sendKeys("poun");
+driver.findElement(By.id("lastname")).sendKeys("raj");
+driver.findElement(By.id("userName")).sendKeys("pounraj");
+driver.findElement(By.id("password")).sendKeys("123456");
+driver.findElement(By.id("password")).sendKeys("123456");
+
+long endTime=System.currentTimeMillis();
+
+
+long totalTime = endTime-starttime;
+System.out.println("TOTAL TIME taken "+totalTime);
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	  
+
+
+
+	  
+
+	  
+
+	  
+	  
+
+
+
+	 
+
+
+
+
+
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+
+	  
+
+
+	 
+
+	 
+	  
+
+
+	
+	 
+	
+
+	
+
+
+	  
+	   
+	   
+
+	  }
+	   catch(Exception e) {
+			  System.out.println("THARAK "+e);
+			  System.out.println("THARAK "+e.getMessage());
+
+	   }
+	   finally {
+	   }
+	   
+  }
+private Actions draganddrop (WebElement from, WebElement to) {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+}

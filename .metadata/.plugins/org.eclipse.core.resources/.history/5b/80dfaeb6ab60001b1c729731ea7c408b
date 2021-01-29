@@ -1,0 +1,45 @@
+package testng_exercises;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
+
+import pageobjects.loginpageobjects;
+
+public class pageobject {
+	@Test
+	 public void beforeSuite() throws InterruptedException {
+		  
+		  System.out.println("Inside before method");
+		 // System.setProperty("webdriver.chrome.driver","C:\\Users\\user\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe");
+		  System.setProperty("webdriver.chrome.driver","D:\\chromedriver.exe");
+			
+
+		  ChromeDriver driver = new org.openqa.selenium.chrome.ChromeDriver();
+		  driver.get("https://www.phptravels.net/login");
+		  driver.manage().window().maximize();
+		  Thread.sleep(2000);
+		  PageFactory.initElements(driver, loginpageobjects.class);
+		  loginpageobjects.username.sendKeys("user@phptravels.com");
+		  loginpageobjects.password.sendKeys("demouser");
+		  loginpageobjects.loginButton.click();
+		  
+		  
+			/*
+			 * loginpageobjects.username(driver).sendKeys("user@phptravels.com");
+			 * loginpageobjects.password(driver).sendKeys("demouser");
+			 * loginpageobjects.loginButton(driver).click();
+			 */
+		  
+		  
+		  
+		  
+		  //THIS normal method
+		  //driver.findElement(By.name("username")).sendKeys("user@phptravels.com");
+		  //driver.findElement(By.name("password")).sendKeys("demouser");
+		  //driver.findElement(By.xpath("//*[@id=\"loginfrm\"]/button")).click();
+			
+		  //driver.quit();
+	 }
+}

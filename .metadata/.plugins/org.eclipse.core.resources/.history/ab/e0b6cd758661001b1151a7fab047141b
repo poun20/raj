@@ -1,0 +1,49 @@
+package testng_exercises;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+import Object_repository.Flight_search_page;
+import Object_repository.profileupload;
+
+public class uploadprofile {
+  @Test
+  public void f() throws InterruptedException {
+	  
+	  System.out.println("Inside before method");
+	 // System.setProperty("webdriver.chrome.driver","C:\\Users\\user\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe");
+	  System.setProperty("webdriver.chrome.driver","D:\\chromedriver.exe");
+		
+
+	  ChromeDriver driver = new org.openqa.selenium.chrome.ChromeDriver();
+	  driver.get("https://www.phptravels.net/login");
+	  driver.manage().window().maximize();
+	  Thread.sleep(2000);
+	  Flight_search_page.username(driver).sendKeys("user@phptravels.com");
+	  Flight_search_page.password(driver).sendKeys("demouser");
+	  Flight_search_page.loginButton(driver).click();
+	  driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	  profileupload.MYPROFILE(driver).click();
+	  profileupload.PhoneNum(driver).sendKeys("123456789");
+	  profileupload.City(driver).sendKeys("krishnagiri");
+	  profileupload.submitbutton(driver).click();
+	  
+	  
+	  //driver.findElement(By.name("username")).sendKeys("user@phptravels.com");
+	  //driver.findElement(By.name("password")).sendKeys("demouser");
+	  //driver.findElement(By.xpath("//*[@id=\"loginfrm\"]/button")).click();
+	  //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+	  //driver.findElement(By.xpath("//*[@class='nav-link go-text-right']")).click();
+	  //driver.findElement(By.name("phone")).sendKeys("123456789");
+	  //driver.findElement(By.name("city")).sendKeys("krishnagiri");
+	  //driver.findElement(By.xpath("//*[@id=\"profilefrm\"]/div/div/div[7]/div/button")).click();
+	 }
+ 
+}
+
+  
+

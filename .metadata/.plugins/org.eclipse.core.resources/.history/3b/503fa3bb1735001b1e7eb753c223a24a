@@ -1,0 +1,79 @@
+package testng_exercises;
+
+import org.testng.annotations.Test;
+
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+
+public class NewTest {
+	public WebDriver driver;
+  @Test
+  public void f() {
+	  System.out.println("Inside test method");
+	  
+  }
+  @BeforeTest
+  public void beforeSuite() {
+	  System.out.println("Inside before method");
+	 // System.setProperty("webdriver.chrome.driver","C:\\Users\\user\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe");
+	  System.setProperty("webdriver.chrome.driver","D:\\chromedriver.exe");
+		
+
+	  driver = new org.openqa.selenium.chrome.ChromeDriver();
+	  driver.get("http://automationpractice.com/index.php");
+		System.out.println(driver.getCurrentUrl());
+  }
+
+  @AfterTest
+  public void afterSuite() throws InterruptedException {
+	  System.out.println("Inside after method");
+	  driver.manage().window().maximize();
+	  
+
+	driver.findElement(By.className("login")).click();
+	driver.findElement(By.id("email_create")).sendKeys("rajpoun1996@gmail.com");
+	Thread.sleep(2000);
+	driver.findElement(By.id("SubmitCreate")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.name("id_gender")).click();
+	driver.findElement(By.name("customer_firstname")).sendKeys("poun");
+	driver.findElement(By.id("customer_lastname")).sendKeys("raj");
+	driver.findElement(By.id("passwd")).sendKeys("123456");
+	Thread.sleep(2000);
+	WebElement day=driver.findElement(By.name("days"));
+	WebElement month=driver.findElement(By.id("months"));
+	WebElement year=driver.findElement(By.name("years"));
+	Select days=new Select(day);
+	Select months=new Select(month);
+	Select years=new Select(year);
+	days.selectByIndex(5);
+	months.selectByIndex(5);
+	years.selectByIndex(17);
+	
+
+
+
+	
+	 
+	
+
+	
+
+
+	  
+	   
+	   
+
+	   
+	   
+  }
+
+}

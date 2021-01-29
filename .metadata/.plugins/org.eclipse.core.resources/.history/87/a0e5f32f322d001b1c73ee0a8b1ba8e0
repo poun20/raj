@@ -1,0 +1,36 @@
+package myproject;
+
+public class poun {
+
+	public static void main(String[] args) {
+		
+		
+		int order=0;
+		for(int i=0;i<1000;i++) {
+		if(order==0) {
+			order=1;
+			System.out.println("p");
+			System.out.println("pp");
+			System.out.println("ppp");
+			System.out.println("pppp");
+		}
+		
+		else  {
+			order=0;
+			System.out.println("pppp");
+			System.out.println("ppp");
+			System.out.println("pp");
+			System.out.println("p");
+		}
+		}}}
+		
+
+		
+		
+		
+		
+	
+		
+
+
+	

@@ -1,0 +1,19 @@
+package myproject;
+
+public class MyClass {
+
+	public static void main(String[] args) {
+	    int mark =45;
+	    if(mark>50)
+	    {
+	    	System.out.println(" mark greahter then 50");	
+	    	break;
+	    	}
+	    else {
+	    	System.out.println("mark less then 50");
+	    }
+	}
+}
+	   
+
+

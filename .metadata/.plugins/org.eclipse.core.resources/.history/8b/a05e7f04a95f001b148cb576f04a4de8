@@ -1,0 +1,16 @@
+package testng_exercises;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class pageobject {
+	 public void beforeSuite() {
+		  
+		  System.out.println("Inside before method");
+		 // System.setProperty("webdriver.chrome.driver","C:\\Users\\user\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe");
+		  System.setProperty("webdriver.chrome.driver","D:\\chromedriver.exe");
+			
+
+		  ChromeDriver driver = new org.openqa.selenium.chrome.ChromeDriver();
+		  driver.get("https://demoqa.com/buttons");
+	 }
+}

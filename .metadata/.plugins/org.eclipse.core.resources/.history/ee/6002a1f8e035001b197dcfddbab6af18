@@ -1,0 +1,74 @@
+package testng_exercises;
+
+import org.testng.annotations.Test;
+
+import com.thoughtworks.selenium.webdriven.commands.DragAndDrop;
+
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+
+import java.awt.List;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+
+public class NewTest {
+	public WebDriver driver;
+  @Test
+  public void f() {
+	  System.out.println("Inside test method");
+	  
+  }
+  @BeforeTest
+  public void beforeSuite() {
+	  System.out.println("Inside before method");
+	 // System.setProperty("webdriver.chrome.driver","C:\\Users\\user\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe");
+	  System.setProperty("webdriver.chrome.driver","D:\\chromedriver.exe");
+		
+
+	  driver = new org.openqa.selenium.chrome.ChromeDriver();
+	  driver.get("https://www.redbus.in/search?fromCityName=Chennai%20%28All%20Locations%29&fromCityId=123&toCityName=Bangalore%20%28All%20Locations%29&toCityId=122&onward=11-Dec-2020&srcCountry=IND&destCountry=IND&opId=0&busType=Any");
+		System.out.println(driver.getCurrentUrl());
+  }
+
+  @AfterTest
+  public void afterSuite() throws InterruptedException {
+	  System.out.println("Inside after method");
+	  driver.manage().window().maximize();
+	  Thread.sleep(2000);
+	  driver.findElement(By.id("src")).sendKeys("chennai");
+	  java.util.List<WebElement>list=(java.util.List<WebElement>) driver.findElement(By.xpath("//*[@id=\"search\"]/div/div[1]/div/ul/li[2]"));
+	  driver.findElement(By.id("dest")).sendKeys("bangalore");
+	  Thread.sleep(2000);
+	  driver.findElement(By.xpath("//*[@id=\"search\"]/div/div[3]/span")).click();
+	  driver.findElement(By.xpath("//*[@id=\"rb-calendar_onward_cal\"]/table/tbody/tr[5]/td[7]")).click();
+	  driver.findElement(By.id("search_btn")).click();
+
+
+	
+	 
+	
+
+	
+
+
+	  
+	   
+	   
+
+	   
+	   
+  }
+private Actions draganddrop (WebElement from, WebElement to) {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+}

@@ -1,0 +1,25 @@
+package myproject;
+
+public class MyClass {
+
+	public static void main(String[] args) {
+	    int mark =20;
+	    if(mark<50)
+	    {
+	    	System.out.println(" fail");	
+	    }else if (mark>67 && mark<70) {
+	    	System.out.println(" pass with first class");
+	    }else if (mark>40 && mark<85) {
+	    	System.out.println(" pass with second class");
+	    }else if (mark>95 && mark<100) {
+	    	System.out.println(" pass with third class");
+	    }else   {
+	    	System.out.println(" invalid marks");
+	    }
+	    	
+	}
+	    	
+
+	   
+}
+
